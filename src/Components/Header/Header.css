@@ -1,0 +1,122 @@
+
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+a{
+    color: grey;
+    text-decoration: none;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.social_logo{
+    height: 120px;
+    width: 220px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.social_links li{
+    margin: 5px 9px 0;
+}
+.social{
+    display: flex;
+    margin-top: 20px;
+    max-height: 30px; 
+    align-items: center;
+}
+.social_links{
+    display: flex;
+    border-right: 2px solid grey;
+}
+i{
+    
+    color: grey;
+}
+.social_links a{
+    font-size: 26px;
+}
+.social_kids{
+    margin-left: 20px;
+    
+}
+.social_kids_span{
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: grey;
+    padding: 1px 5px;
+}
+.search_input{
+    background-color:#242424 ;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    
+}
+.search_button{
+    background-color:#242424 ;
+    font-size: 22px;
+    border-radius: 0 5px 5px 0;
+    margin-left: 5px;
+  
+}
+.search_form{
+    display: flex;
+    margin-top: 10px;
+}
+.button_group{
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+
+}
+.login_button{
+    background-color: #000;
+    color: grey;
+    padding: 5px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.login_button:first-child{
+ margin-right: 10px;
+}
+.nav_links{
+    display: flex;
+    justify-content: center;
+    color: grey;
+    
+}
+.nav_link{
+   padding: 20px;
+    font-weight: 700;
+    border-right: 1px solid grey;
+    
+}
+.nav_link_first{
+    border-left: 1px solid grey;
+}
+.nav_link_first:after{
+  content: '';
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: white;
+  box-shadow: 0 0 3px yellow,
+    0 0 2px yellow
+}
+.nav{
+    margin-top: 15px;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
