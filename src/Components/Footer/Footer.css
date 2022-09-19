@@ -1,0 +1,31 @@
+.social_section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: grey;
+    font-weight: 700;
+
+}
+.social_kids_span{
+    color: black;
+}
+.copy{
+    text-align: center;
+    margin-top: 50px;
+    color: grey;
+    font-weight: 700;
+}
+.legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+.legal_link{
+    border-right: 1px solid grey;
+    margin: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+}
