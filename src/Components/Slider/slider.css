@@ -1,0 +1,115 @@
+.first-slide{
+    position: relative;
+    color: white;
+}
+.first-slide-info h2{
+    font-size: 3rem;
+    margin-top: 40px;
+}
+.first-slide-info p{
+    font-size: 1.5rem;
+    margin-top: 24px;
+}
+.first-slide-info button{
+    margin-top: 48px;
+    background-color: blue;
+    border-radius: 2px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 15px 32px;
+    text-transform: uppercase;
+}
+.slide-img{
+    width: 100%;
+    height: 600px;
+}
+.first-slide-info{
+    left: 150px;
+    position: absolute;
+    text-align: left;
+    top: 50px;
+    width: 30%;
+    z-index: 10;
+}
+
+
+
+
+
+.second-slide{
+    position: relative;
+}
+
+
+.second-slide-info h2{
+    margin-top: 40px;
+    font-size: 3rem;
+}
+.second-slide-info p{
+    margin-top: 24px;
+    font-size: 1.5rem;
+    margin-bottom: 2em
+}
+.second-slide-info button{
+    background-color: orange;
+    border-radius: 2px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 15px 32px;
+    text-transform: uppercase;
+}
+
+
+.second-slide-info{
+    left: 150px;
+    position: absolute;
+    text-align: left;
+    top: 50px;
+    width: 30%;
+    z-index: 10;
+}
+
+
+
+.third-slide{
+    position: relative;
+}
+.third-slide-info h2{
+    margin-top: 40px;
+    font-size: 3rem;
+}
+.third-slide-info p{
+    margin-top: 24px;
+    font-size: 1.5rem;
+    margin-bottom: 2em
+}
+.third-slide-info button{
+    background-color: #ddc187;
+    border-radius: 2px;
+    color:white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 15px 32px;
+    text-transform: uppercase;
+}
+
+
+.third-slide-info{
+    left: 150px;
+    position: absolute;
+    text-align: left;
+    top: 50px;
+    width: 30%;
+    z-index: 10;
+}
+
+
+
+.slick-slider{
+    width: 100vw;
+}
