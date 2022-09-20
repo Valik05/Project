@@ -1,13 +1,13 @@
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
+import Footer from './Components/Footer'
+import Header from './Components/Header'
 
 const App = () => {
   return (
     <div className="App">
       <Header />
-      <Footer/>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
