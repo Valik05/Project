@@ -3,9 +3,18 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './slider.css'
+import NextArrow from '../../assets/icons/NextArrow';
+import PrevArrow from '../../assets/icons/PrevArrow';
 const settings = {
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    draggable: false,
+    infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    nextArrow: <NextArrow fill="white" width={24} />,
+    prevArrow: <PrevArrow fill="white" width={24} />
 };
 
 const Slide = () => {
