@@ -113,3 +113,37 @@
 .slick-slider{
     width: 100vw;
 }
+
+
+.slick-prev{
+    background-color: rgba(32,32,32,.5);
+    left: 24px;
+    border-radius: 2px;
+    color: white;
+    font-size: 2rem;
+    height: 40px;
+    padding: 4px;
+    position: absolute;
+    top: 50%;
+    transition: background-color .15s linear;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 40px;
+    z-index: 10;
+}
+.slick-next{
+    background-color: rgba(32,32,32,.5);
+    right: 24px;
+    border-radius: 2px;
+    color: white;
+    font-size: 2rem;
+    height: 40px;
+    padding: 4px;
+    position: absolute;
+    top: 50%;
+    transition: background-color .15s linear;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 40px;
+    z-index: 11;
+}
