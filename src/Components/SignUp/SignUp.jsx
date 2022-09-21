@@ -1,17 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../images/starwars.png'
 import PropTypes from 'prop-types'
 import './SignUp.css'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../actions/actions'
 
 const SignUp = ({ setOpen, logIn }) => {
-  const hideShowPass = () => {
-    const myPassword = document.getElementById('myPassword')
-    if (myPassword.type === 'password') {
-      myPassword.type = 'text'
-    } else {
-      myPassword.type = 'password'
+  const [showPass, setShowPass] = useState(false)
+  const [value, setValue] = useState()
+  const dispatch = useDispatch()
+
+
+  const handleChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    setValue((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+  const createAccount = (e) => {
+    e.preventDefault()
+    if (!logIn) {
+      localStorage.setItem('user', JSON.stringify(value))
+    }
+    const { email, password } = JSON.parse(localStorage.getItem('user'))
+    if (email === value.email && password === value.password) {
+      dispatch(loginUser({ email, password }))
+      setTimeout(() => {
+           setOpen((prevState) => ({ ...prevState, isOpen: false }))
+      }, 1000)
+     
     }
   }
+
   return (
     <div className="modal">
       <div className="modal_container">
@@ -19,20 +41,73 @@ const SignUp = ({ setOpen, logIn }) => {
         <h2 className="modal_title">
           {logIn ? 'SIGN IN' : 'create your account'}
         </h2>
-        <form action="#" className="modal_form">
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
-          <input type="email" placeholder="Email Address" />
-          <input type="text" placeholder="Display Name" />
-          <input type="text" placeholder="First Name" />
-          <input type="password" placeholder="Password" id="myPassword" />
+        <form onSubmit={createAccount} action="#" className="modal_form">
+          {logIn ? (
+            <div className="modal_form_input">
+              <input
+                className="input"
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Username or Email Address"
+                onChange={handleChange}
+              />
+              <input
+                className="input"
+                type={showPass ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                id="myPassword"
+                onChange={handleChange}
+              />
+            </div>
+          ) : (
+            <div className="modal_form_input">
+              <input
+                className="input"
+                type="text"
+                placeholder="First Name"
+                name="name"
+                onChange={handleChange}
+              />
+              <input
+                className="input"
+                type="text"
+                placeholder="Last Name"
+                name="lastName"
+                onChange={handleChange}
+              />
+              <input
+                className="input"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                onChange={handleChange}
+              />
+              <input
+                className="input"
+                type="text"
+                placeholder="Display Name"
+                name="displayName"
+                onChange={handleChange}
+              />
+              <input
+                className="input"
+                type={showPass ? 'text' : 'password'}
+                placeholder="Password"
+                id="myPassword"
+                name="password"
+                onChange={handleChange}
+              />
+            </div>
+          )}
           <div className="form_show">
             <input
               type="checkbox"
               name="show"
               id="show"
               className="form_checkbox"
-              onClick={hideShowPass}
+              onClick={() => setShowPass((prevState) => !prevState)}
             />
             <label htmlFor="show">Show password</label>
           </div>
@@ -59,12 +134,11 @@ const SignUp = ({ setOpen, logIn }) => {
               className="form_submit_logIn"
               aria-label="create account"
             >
-              {' '}
               Create Account
             </button>
           ) : null}
           <div>
-            {logIn ? (
+            {!logIn ? (
               <p className="form_footer">
                 Already have an account?
                 <a href="#" className="form_footer_signin">
