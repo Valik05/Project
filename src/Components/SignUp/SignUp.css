@@ -15,6 +15,7 @@
     width: 85%;
     
 }
+
 .input{
     font-size: 20px;
     color: grey;
@@ -24,6 +25,10 @@
 }
 .modal_form{
     color: grey;
+}
+.modal_form_input{
+  display: flex;
+  flex-direction: column;
 }
 .modal_container{
     position: relative;
