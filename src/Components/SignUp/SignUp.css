@@ -80,4 +80,13 @@
 }
 .form_footer_signin{
     color: yellow;
+    background-color:#181818 ;
+}
+.require{
+    color: red;
+    font-weight: 700;
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid red;
+    padding: 15px 50px;
 }
