@@ -1,10 +1,10 @@
 import API from '../API'
 
 const peopleServices = {
-  getPeople: async () => {
+  getPeople: async (page) => {
     try {
-      const getPeople = await API.get('/people')
-      return getPeople
+    const { data } = await API.get(`/people/?page=${page}`)
+      return data
     } catch (error) {
       console.log(error)
     }
