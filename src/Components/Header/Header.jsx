@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { logOut } from '../../actions/actions'
 import Modal from '../Modal/Modal'
 import SignUp from '../SignUp/SignUp'
 import './Header.css'
 
 const Header = () => {
+    const [logout, setLogOut] = useState(false)
     const [open, setOpen] = useState({
         type: '',
         isOpen: false,
@@ -15,8 +17,15 @@ const Header = () => {
             type: type,
             isOpen: true,
         }))
-    }
-    const user = useSelector(state => state.user)
+  }
+  const dispatch = useDispatch()
+  const deleteUser = () => {
+    setLogOut(true)
+    dispatch(logOut(logout))
+    
+   }
+  const user = useSelector(state => state.user)
+  
     return (
       <div className="container">
         <div className="header">
@@ -54,6 +63,7 @@ const Header = () => {
                 alt=""
               />
             </a>
+            {logout ? <div>logout</div> : null}
           </div>
           <div>
             <div>
@@ -70,7 +80,10 @@ const Header = () => {
             </div>
             <div className="button_group">
               {user ? (
-                <span style={{color:'white'}}>{user.email}</span>
+                <div>
+                  <span style={{ color: 'white' }}>{user.email}</span>
+                  <button type='button' className='login_button logout' onClick={deleteUser}> LogOut</button>
+                </div>
               ) : (
                 <div>
                   <button

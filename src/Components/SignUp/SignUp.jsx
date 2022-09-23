@@ -5,11 +5,11 @@ import './SignUp.css'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../actions/actions'
 
-const SignUp = ({ setOpen, logIn }) => {
+const SignUp = ({ setOpen, logIn}) => {
   const [showPass, setShowPass] = useState(false)
   const [value, setValue] = useState()
+  const [require, setRequire] = useState(false)
   const dispatch = useDispatch()
-
 
   const handleChange = (event) => {
     const name = event.target.name
@@ -23,14 +23,18 @@ const SignUp = ({ setOpen, logIn }) => {
     e.preventDefault()
     if (!logIn) {
       localStorage.setItem('user', JSON.stringify(value))
+      return setTimeout(() => {
+        setOpen((prevState) => ({ ...prevState, isOpen: false }))
+      }, 1000)
     }
     const { email, password } = JSON.parse(localStorage.getItem('user'))
     if (email === value.email && password === value.password) {
       dispatch(loginUser({ email, password }))
       setTimeout(() => {
-           setOpen((prevState) => ({ ...prevState, isOpen: false }))
+        setOpen((prevState) => ({ ...prevState, isOpen: false }))
       }, 1000)
-     
+    } else {
+      setRequire(true)
     }
   }
 
@@ -38,6 +42,12 @@ const SignUp = ({ setOpen, logIn }) => {
     <div className="modal">
       <div className="modal_container">
         <img src={logo} alt="" />
+        {require ? (
+          <div className="require">
+            The credentials you entered are incorrect. Reminder: passwords are
+            case sensitive.
+          </div>
+        ) : null}
         <h2 className="modal_title">
           {logIn ? 'SIGN IN' : 'create your account'}
         </h2>
@@ -133,6 +143,7 @@ const SignUp = ({ setOpen, logIn }) => {
               type="submit"
               className="form_submit_logIn"
               aria-label="create account"
+              onClick={()=> setOpen({type: 'signUp'})}
             >
               Create Account
             </button>
@@ -141,10 +152,11 @@ const SignUp = ({ setOpen, logIn }) => {
             {!logIn ? (
               <p className="form_footer">
                 Already have an account?
-                <a href="#" className="form_footer_signin">
+                <button className="form_footer_signin"
+                onClick={()=> setOpen({type: 'logIn'})}>
                   {' '}
                   Sign In
-                </a>
+                </button>
               </p>
             ) : null}
           </div>
@@ -172,5 +184,11 @@ SignUp.defaultProps = {
   setOpen: () => {},
   login: true,
 }
+
+
+
+
+
+
 
 export default SignUp

@@ -91,6 +91,9 @@ i{
 .login_button:first-child{
  margin-right: 10px;
 }
+.logout{
+    margin-left: 10px;
+}
 .nav_links{
     display: flex;
     justify-content: center;
