@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { logOut } from '../../actions/actions'
 import Modal from '../Modal/Modal'
 import SignUp from '../SignUp/SignUp'
@@ -108,13 +109,13 @@ const Header = () => {
         <nav className="nav">
           <ul className="nav_links">
             <li className="nav_link nav_link_first">
-              <a href="#">HOME</a>
+              <Link to="/main">HOME</Link>
             </li>
             <li className="nav_link">
-              <a href="#">STARSHIPS</a>
+              <Link to="/starships">STARSHIPS</Link>
             </li>
             <li className="nav_link">
-              <a href="#">ACTORS</a>
+              <Link to="/actors">ACTORS</Link>
             </li>
           </ul>
         </nav>

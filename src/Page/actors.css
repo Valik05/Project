@@ -1,0 +1,15 @@
+.actor-list li{
+        background-color: #151515;
+        color: #fff;
+        cursor: pointer;
+        margin: 1em auto 1em;
+        padding: 1em;
+        text-align: left;
+        width: 70%;
+        font-size: 1.17em;
+        font-weight: bold;
+}
+.actor-list li:hover{
+    filter: brightness(130%);
+    color: gold;
+}
