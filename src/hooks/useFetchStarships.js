@@ -12,6 +12,9 @@ const useFetchStarships = () => {
     if (next) {
       setPage((prevState) => prevState + 1)
     }
+    }
+  const backToTop = () => {
+      window.scrollTo(0, 0)
   }
   useEffect(() => {
     ;(async () => {
@@ -34,6 +37,7 @@ const useFetchStarships = () => {
     loading,
     error,
     handlePage,
+    backToTop,
     next,
   }
 }

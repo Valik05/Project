@@ -31,7 +31,7 @@ const Header = () => {
         <div className="header">
           <div className="social">
             <ul className="social_links">
-              <li className="list_item">
+              <li >
                 <a href="">
                   <i className="fa fa-facebook-official" aria-hidden="true"></i>
                 </a>
