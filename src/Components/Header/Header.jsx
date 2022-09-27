@@ -1,23 +1,33 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { logOut } from '../../actions/actions'
+import CustomLink from '../CustomLink/CustomLink'
 import Modal from '../Modal/Modal'
 import SignUp from '../SignUp/SignUp'
 import './Header.css'
 
 const Header = () => {
     const [logout, setLogOut] = useState(false)
+    const [itemActive, setItemActive] = useState('Main')
     const [open, setOpen] = useState({
         type: '',
         isOpen: false,
     })
+    const navButtons = [
+      {to: 'main', label: 'Main', id: 1},
+      {to: 'starships', label: 'Starships', id: 2},
+      {to: 'actors', label: 'Actors', id: 3}
+    ]
     const handleClick = (type) => {
         setOpen((prevState) => ({
             ...prevState,
             type: type,
             isOpen: true,
         }))
+  }
+
+  const onItemClick = (label) => {
+    setItemActive(label)
   }
   const dispatch = useDispatch()
   const deleteUser = () => {
@@ -108,15 +118,14 @@ const Header = () => {
         </div>
         <nav className="nav">
           <ul className="nav_links">
-            <li className="nav_link nav_link_first">
-              <Link to="/main">HOME</Link>
-            </li>
-            <li className="nav_link">
-              <Link to="/starships">STARSHIPS</Link>
-            </li>
-            <li className="nav_link">
-              <Link to="/actors">ACTORS</Link>
-            </li>
+            {navButtons.map((item) => {
+              const {id, ...itemProps} = item
+              return  (
+              <li key={id} className="nav_link">
+              <CustomLink id={id} itemActive={itemActive} value={itemProps} onItemClick={onItemClick}/>
+              </li>
+              )
+            })}
           </ul>
         </nav>
         <Modal open={open.isOpen}>

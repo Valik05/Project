@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 
 export const useObserver = (lastElement,canLoad, loading, callback) =>{
-    console.log(canLoad)
     const observer = useRef()
     useEffect(() =>{
         if(loading) return;
@@ -12,7 +11,6 @@ export const useObserver = (lastElement,canLoad, loading, callback) =>{
             }
         }
         observer.current = new IntersectionObserver(cb)
-        console.log(observer.current);
         observer.current.observe(lastElement.current)
       },[loading])
 }
