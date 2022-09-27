@@ -4,9 +4,7 @@ import useFetchActors from '../hooks/useFetchActors';
 import "./actors.css"
 const Actors = () => {
     const itemsEls = useRef([])
-    const { actors, loading } = useFetchActors(itemsEls)
-   
-    
+    const { actors, loading, next, backToTop } = useFetchActors(itemsEls)
   if (loading) <Loader />
   
     return (
@@ -17,6 +15,13 @@ const Actors = () => {
         })}
         <div ref={itemsEls}></div>
         {loading ? <Loader /> : null}
+        {!next ? (
+          <div className="btn-on-bottom">
+        <button type="button" className="view_button" onClick={backToTop} >
+                  BACK TO TOP
+        </button>
+        </div>
+      ) : null}
       </ul>
         </div>
     );
