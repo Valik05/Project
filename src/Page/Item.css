@@ -1,0 +1,38 @@
+.details{
+    color: grey;
+    margin: 0 auto 5em;
+    text-align: left;
+    width: 60%;
+}
+.actor {
+    color: grey;
+    margin-bottom: 10em;
+  }
+  
+  .actor h3 {
+    margin-bottom: 0;
+    padding: 0.5em 0.6em;
+    color: white;
+    background-color: black;
+    border-bottom: 1px solid gold;
+    font-size: 3rem;
+  }
+  
+  .actor__details {
+    display: flex;
+    padding: 1em 2em;
+    background-color: #242424;
+  }
+  
+  .actor__details div {
+    flex: 1;
+  }
+  
+  .actor__detail {
+    font-size: 1.3rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }

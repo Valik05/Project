@@ -8,7 +8,8 @@ import './Header.css'
 
 const Header = () => {
     const [logout, setLogOut] = useState(false)
-    const [itemActive, setItemActive] = useState('Main')
+    const [itemActive, setItemActive] = useState('')
+    console.log(itemActive)
     const [open, setOpen] = useState({
         type: '',
         isOpen: false,

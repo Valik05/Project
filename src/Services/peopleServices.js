@@ -9,6 +9,15 @@ const peopleServices = {
       console.log(error)
     }
   },
+  getPerson: async (id) => {
+    try {
+    const { data } = await API.get(`/people/${id}`)
+    console.log(data)
+      return data
+    } catch (error) {
+      console.log(error)
+    }
+  },
 }
 
 export default peopleServices

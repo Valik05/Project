@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Loader from '../Components/Loader/Loader';
+import Item from '../Page/Item';
 import PrivateRoutes from './PrivateRoutes';
 
 const Starships = lazy(() => import('../Page/Starships'))
@@ -21,6 +22,11 @@ const MainRoutes = () => (
             <Route path="/actors" element={(
                 <PrivateRoutes>
                     <Actors />
+                </PrivateRoutes>
+            )}/>
+            <Route path="/actor/:id" element={(
+                <PrivateRoutes>
+                    <Item />
                 </PrivateRoutes>
             )}/>
         </Routes>
