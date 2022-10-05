@@ -9,7 +9,6 @@ const Main = lazy(() => import('../Page/Main'))
 const Actors = lazy(() => import('../Page/Actors'))
 
 
-
 const MainRoutes = () => (
     <Suspense fallback={<Loader />}>
         <Routes>

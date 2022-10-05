@@ -13,3 +13,22 @@
     filter: brightness(130%);
     color: gold;
 }
+
+.view_button{
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    padding: 15px 25px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 20px;
+ }
+ .view_button:hover{
+       color: rgb(216, 191, 79) !important;
+       border: 1px solid rgb(216, 191, 79);
+ }
+ .btn-on-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }

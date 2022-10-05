@@ -6,10 +6,11 @@ import useFetchActors from '../hooks/useFetchActors';
 import "./actors.css"
 const Actors = () => {
     const itemsEls = useRef([])
-    const { actors, loading } = useFetchActors(itemsEls)
-    const navigate = useNavigate();
+
+const { actors, loading, next, backToTop } = useFetchActors(itemsEls)
+    const navigate = useNavigate(); 
     
-  if (loading) return <Loader />
+ 
   const handleClick = (url) => {
    const id = extractId(url)
     navigate(`/actor/${id}`)
@@ -22,6 +23,13 @@ const Actors = () => {
         })}
         <div ref={itemsEls}></div>
         {loading ? <Loader /> : null}
+        {!next ? (
+          <div className="btn-on-bottom">
+        <button type="button" className="view_button" onClick={backToTop} >
+                  BACK TO TOP
+        </button>
+        </div>
+      ) : null}
       </ul>
         </div>
     );

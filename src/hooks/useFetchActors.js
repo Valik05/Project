@@ -8,6 +8,9 @@ const useFetchActors = (lastElement) => {
     const [error, setError] = useState(null);
     const [next, setNext] = useState(true);
     const [page, setPage] = useState(1);
+    const backToTop = () => {
+      window.scrollTo(0, 0)
+  }
         useObserver(lastElement, next, loading, () => setPage(page + 1))
     useEffect(() => {
         ;(async () => {
@@ -30,6 +33,7 @@ const useFetchActors = (lastElement) => {
         loading,
         error,
         next,
+        backToTop
       }
 }
 
