@@ -9,7 +9,7 @@ const Actors = () => {
     const { actors, loading } = useFetchActors(itemsEls)
     const navigate = useNavigate();
     
-  if (loading) <Loader />
+  if (loading) return <Loader />
   const handleClick = (url) => {
    const id = extractId(url)
     navigate(`/actor/${id}`)
