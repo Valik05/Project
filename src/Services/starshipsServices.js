@@ -9,6 +9,14 @@ const starshipsServices = {
       console.log(error)
     }
   },
+  getStarship: async (id) => {
+    try {
+    const { data } = await API.get(`/starships/${id}`)
+      return data
+    } catch (error) {
+      console.log(error)
+    }
+  },
 }
 
 export default starshipsServices
