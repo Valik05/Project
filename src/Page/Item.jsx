@@ -1,17 +1,15 @@
 import React from 'react'
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Films from '../Components/Films/Films';
 import Loader from '../Components/Loader/Loader';
+import Starship from '../Components/Starship/Starship';
 import { useFetchActor } from '../hooks/useFetchActor';
-import { useFetchFilms } from '../hooks/useFetchFilms';
 import './Item.css'
 const Item = () => {
     const { id } = useParams();
-
     const { person, loading, error } = useFetchActor(id)
-    const { films, loadingFilms } = useFetchFilms(person)
-
-
-
+   
     if (loading) return <Loader />
 
     const { name, height, mass, hair_color, eye_color, gender, birth_year } = person;
@@ -32,6 +30,8 @@ const Item = () => {
                     </div>
                 </div>
             </div>
+            <Starship person={person}/>
+            <Films person={person}/>
         </div>
     );
 };
