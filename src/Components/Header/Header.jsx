@@ -8,7 +8,9 @@ import './Header.css'
 
 const Header = () => {
     const [logout, setLogOut] = useState(false)
-    const [itemActive, setItemActive] = useState('')
+   
+    const types = localStorage.getItem('types')
+    const [itemActive, setItemActive] = useState(types)
     console.log(itemActive)
     const [open, setOpen] = useState({
         type: '',
@@ -28,6 +30,7 @@ const Header = () => {
   }
 
   const onItemClick = (label) => {
+    localStorage.setItem('types', label)
     setItemActive(label)
   }
   const dispatch = useDispatch()
