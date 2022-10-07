@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useFetchFilms } from '../../hooks/useFetchFilms';
 import Loader from '../Loader/Loader';
 
@@ -25,6 +26,10 @@ const Films = ({ person }) => {
        </ul>
         </div>
     );
+};
+Films.propTypes = {
+    children: PropTypes.any,
+    person: PropTypes.array,
 };
 
 export default Films;

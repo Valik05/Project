@@ -1,14 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Films from '../Components/Films/Films';
 import Loader from '../Components/Loader/Loader';
 import Starship from '../Components/Starship/Starship';
 import { useFetchActor } from '../hooks/useFetchActor';
+// import PropTypes from 'prop-types';
 import './Item.css'
 const Item = () => {
     const { id } = useParams();
-    const { person, loading, error } = useFetchActor(id)
+    const { person, loading } = useFetchActor(id)
    
     if (loading) return <Loader />
 
@@ -35,5 +35,9 @@ const Item = () => {
         </div>
     );
 };
+// Item.propTypes = {
+//     children: PropTypes.any,
+//     error: PropTypes.object,
+// };
 
 export default Item;
