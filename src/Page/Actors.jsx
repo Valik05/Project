@@ -9,8 +9,6 @@ const Actors = () => {
 
 const { actors, loading, next, backToTop } = useFetchActors(itemsEls)
     const navigate = useNavigate(); 
-    
- 
   const handleClick = (url) => {
    const id = extractId(url)
     navigate(`/actor/${id}`)

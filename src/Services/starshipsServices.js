@@ -9,6 +9,14 @@ const starshipsServices = {
       console.log(error)
     }
   },
+  getStarshipImage: async (id) => {
+    try {
+      const { data } = await API.get(`/starships/${id}.jpg`)
+        return data
+      } catch (error) {
+        console.log(error)
+      }
+  },
   getStarship: async (id) => {
     try {
     const { data } = await API.get(`/starships/${id}`)

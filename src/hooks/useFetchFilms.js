@@ -15,7 +15,6 @@ export const useFetchFilms = (person) => {
         try {
             setLoading(true)
             const films = await Promise.all(getId().map((id)=> filmsServices.getFilms(id)))
-            console.log(films)
             setFilms(films)
             setLoading(false)
         } catch (error) {

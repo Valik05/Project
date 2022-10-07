@@ -7,7 +7,6 @@ const useFetchStarships = () => {
   const [error, setError] = useState(null)
   const [next, setNext] = useState(true)
   const [page, setPage] = useState(1)
-  console.log(next)
   const handlePage = () => {
     if (next) {
       setPage((prevState) => prevState + 1)

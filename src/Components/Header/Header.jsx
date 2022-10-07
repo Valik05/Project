@@ -11,7 +11,6 @@ const Header = () => {
    
     const types = localStorage.getItem('types')
     const [itemActive, setItemActive] = useState(types)
-    console.log(itemActive)
     const [open, setOpen] = useState({
         type: '',
         isOpen: false,
