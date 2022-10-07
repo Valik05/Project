@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 const CustomLink = ({value, onItemClick, itemActive}) => {
   const {to, label} = value;
   let clazz = "";
@@ -15,5 +16,11 @@ const CustomLink = ({value, onItemClick, itemActive}) => {
     </ul>
 );
 }
+CustomLink.propTypes = {
+  children: PropTypes.any,
+  value: PropTypes.object,
+  onItemClick: PropTypes.func,
+  itemActive: PropTypes.string
+};
 
 export default CustomLink;

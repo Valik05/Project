@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFetchStarship } from '../../hooks/useFetchStarship';
 import Loader from '../Loader/Loader';
-
+import PropTypes from 'prop-types';
 const Starship = ({ person }) => {
-    const { starships, loadingStarships, error } = useFetchStarship(person)
+    const { starships, loadingStarships } = useFetchStarship(person)
     console.log(starships);
     if (loadingStarships) return <Loader />
     return (
@@ -24,6 +24,10 @@ const Starship = ({ person }) => {
             </ul>
         </div>
     );
+};
+Starship.propTypes = {
+    children: PropTypes.any,
+    person: PropTypes.array
 };
 
 export default Starship;
