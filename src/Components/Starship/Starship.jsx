@@ -4,13 +4,12 @@ import Loader from '../Loader/Loader';
 import PropTypes from 'prop-types';
 const Starship = ({ person }) => {
     const { starships, loadingStarships } = useFetchStarship(person)
-    console.log(starships);
     if (loadingStarships) return <Loader />
     return (
         <div className="section">
             <h3 className='section__header'>Starships</h3>
             <ul className='section__list'>
-                {starships.length > 0 ? starships.map(({ url, name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew}) => (
+                {starships.length > 0 ? starships.map(({ url, name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew }) => (
                     <li className="section__item" key={url}>
                         <p className="section__name" key={url}>{name}</p>
                         <p className="section__model" key={url}>Model: {model}</p>
