@@ -1,15 +1,17 @@
 import React, {useContext} from 'react';
 import { useState } from 'react';
-import useFetchStarships from '../../hooks/useFetchStarships';
+
 import {SearchContext} from "../../context/search-context";
+import useDebounce from "../../hooks/useDebounce";
 
 const Search = () => {
     const [search, setSearch] = useState('')
     const handleChange = (e) => {
         setSearch(e.target.value)
     };
+    const value = useDebounce(search, 500)
     const searchContext = useContext(SearchContext)
-     searchContext.searchHandler(search);
+     searchContext.searchHandler(value);
 
     return (
         <div>
