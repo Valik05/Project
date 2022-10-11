@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Components/Loader/Loader'
 import { extractId } from '../helpers/extractId';
 import useFetchStarships from '../hooks/useFetchStarships';
 import './Starships.css'
+import {SearchContext} from "../context/search-context";
 
 const Starships = () => {
-  const { starships, loading, handlePage, backToTop, next} = useFetchStarships()
-  const navigate = useNavigate(); 
- console.log(starships)
+    const search = useContext(SearchContext);
+    const { starships, loading, handlePage, backToTop, next} = useFetchStarships(search.query);
+
+  const navigate = useNavigate();
 
 const handleClick = (url) => {
     const id = extractId(url)
@@ -23,7 +26,7 @@ const handleClick = (url) => {
     <div className="container">
       <ul className="list" style={{ color: 'white' }}>
         {starships.map(({name, model, url }) => (
-          <li className="list_item" key={name} onClick={() => handleClick(url)}>
+          <li className="list_item" key={uuidv4()} onClick={() => handleClick(url)}>
             <h3>{name}</h3>
             <p>{model}</p>
           </li>
@@ -39,11 +42,11 @@ const handleClick = (url) => {
             VIEW MORE
           </button>
         ) : null)}
-      {!next ? (
+      {!next && !starships.length <= 0 ? (
         <button type="button" className="view_button" onClick={backToTop} >
                   BACK TO TOP
         </button>
-      ) : null}
+      ) : 'Not Found'}
     </div>
   )
 }

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useState } from 'react';
 import useFetchStarships from '../../hooks/useFetchStarships';
+import {SearchContext} from "../../context/search-context";
 
 const Search = () => {
     const [search, setSearch] = useState('')
     const handleChange = (e) => {
         setSearch(e.target.value)
-    }
+    };
+    const searchContext = useContext(SearchContext)
+     searchContext.searchHandler(search);
 
-    const { data } = useFetchStarships(search)
     return (
         <div>
             <form className="search_form" action="" >

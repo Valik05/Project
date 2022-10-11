@@ -13,5 +13,6 @@ const login = (state = [], action) => {
       default: return state
     }
 
-}
+};
+
 export default login

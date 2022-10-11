@@ -23,6 +23,7 @@ const useFetchStarships = (search) => {
         setStarships((prevState) => [...prevState, ...starhip.results])
         if(search){
           setStarships(starhip.results)
+          setPage(1)
         }
         setNext(starhip.next)
         setLoading(false)

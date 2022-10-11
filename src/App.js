@@ -7,17 +7,20 @@ import { PersistGate } from 'redux-persist/integration/react'
 import store, { persistor } from './store';
 import MainRoutes from './Routes/MainRoutes';
 import { BrowserRouter } from 'react-router-dom'
+import SearchContextProvider from "./context/search-context";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Header />
-          <MainRoutes />
-          <Footer />
-        </BrowserRouter>
-      </PersistGate>
+      <SearchContextProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <Header />
+            <MainRoutes />
+            <Footer />
+          </BrowserRouter>
+        </PersistGate>
+      </SearchContextProvider>
     </Provider>
   )
 }
