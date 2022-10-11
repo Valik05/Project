@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useContext, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logOut } from '../../actions/actions'
 import CustomLink from '../CustomLink/CustomLink'
@@ -6,9 +6,11 @@ import Modal from '../Modal/Modal'
 import Search from '../Search/Search'
 import SignUp from '../SignUp/SignUp'
 import './Header.css'
+import {SearchContext} from "../../context/search-context";
 
 const Header = () => {
-    const [logout, setLogOut] = useState(false)
+    const [logout, setLogOut] = useState(false);
+    const search = useContext(SearchContext)
    
     const types = localStorage.getItem('types')
     const [itemActive, setItemActive] = useState(types)
@@ -31,7 +33,8 @@ const Header = () => {
 
   const onItemClick = (label) => {
     localStorage.setItem('types', label)
-    setItemActive(label)
+    setItemActive(label);
+      search.resetSearch()
   }
   const dispatch = useDispatch()
   const deleteUser = () => {
