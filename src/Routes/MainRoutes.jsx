@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Loader from '../Components/Loader/Loader';
 import StarshipItem from '../Page/StarshipItem';
 import PrivateRoutes from './PrivateRoutes';
 
@@ -7,7 +8,6 @@ const Starships = lazy(() => import('../Page/Starships'))
 const Main = lazy(() => import('../Page/Main'))
 const Actors = lazy(() => import('../Page/Actors'))
 const Item = lazy(() => import('../Page/Item'))
-const Loader = lazy(() => import('../Components/Loader/Loader'))
 
 
 const MainRoutes = () => (

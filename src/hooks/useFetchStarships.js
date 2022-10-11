@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import starshipsServices from '../Services/starshipsServices'
-const useFetchStarships = () => {
+const useFetchStarships = (search) => {
   const [starships, setStarships] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -18,18 +18,20 @@ const useFetchStarships = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        setLoading(true)
-        const starhips = await starshipsServices.getStarships(page)
-        setStarships((prevState) => [...prevState, ...starhips.results])
-        setNext(starhips.next)
+        const starhip = await starshipsServices.getStarships(page,search)
+        
+        setStarships((prevState) => [...prevState, ...starhip.results])
+        if(search){
+          setStarships(starhip.results)
+        }
+        setNext(starhip.next)
         setLoading(false)
-        setError(null)
       } catch (error) {
         setLoading(false)
         setError(error)
       }
     })()
-  }, [page])
+  }, [page, search])
 
   return {
     starships,
@@ -38,6 +40,7 @@ const useFetchStarships = () => {
     handlePage,
     backToTop,
     next,
+    search
   }
 }
 
