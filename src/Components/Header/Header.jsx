@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logOut } from '../../actions/actions'
 import CustomLink from '../CustomLink/CustomLink'
 import Modal from '../Modal/Modal'
+import Search from '../Search/Search'
 import SignUp from '../SignUp/SignUp'
 import './Header.css'
 
@@ -81,16 +82,7 @@ const Header = () => {
           </div>
           <div>
             <div>
-              <form className="search_form" action="">
-                <input
-                  type="text"
-                  placeholder="Search Star Wars"
-                  className="search_input"
-                />
-                <button className="search_button">
-                  <i className="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
+              <Search/>
             </div>
             <div className="button_group">
               {user ? (

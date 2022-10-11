@@ -1,9 +1,9 @@
 import API from '../API'
 
 const starshipsServices = {
-  getStarships: async (page) => {
+  getStarships: async (page, search= '') => {
     try {
-      const { data } = await API.get(`/starships?page=${page}`)
+      const { data } = await API.get(`/starships?page=${page}&search=${search}`)
       return data
     } catch (error) {
       console.log(error)

@@ -6,13 +6,17 @@ import useFetchStarships from '../hooks/useFetchStarships';
 import './Starships.css'
 
 const Starships = () => {
-  const { starships, loading, handlePage, backToTop, next } = useFetchStarships()
+  const { starships, loading, handlePage, backToTop, next} = useFetchStarships()
   const navigate = useNavigate(); 
+ console.log(starships)
+
 const handleClick = (url) => {
     const id = extractId(url)
      navigate(`/starship/${id}`)
    }
-  if (loading) <Loader />
+  if (loading) {
+    return <Loader/>
+  }
   
  
   return (
