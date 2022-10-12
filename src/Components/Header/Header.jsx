@@ -21,7 +21,8 @@ const Header = () => {
     const navButtons = [
       {to: 'main', label: 'Main', id: 1},
       {to: 'starships', label: 'Starships', id: 2},
-      {to: 'actors', label: 'Actors', id: 3}
+      { to: 'actors', label: 'Actors', id: 3 },
+      { to: 'planets', label: 'Planets', id:4}
     ]
     const handleClick = (type) => {
         setOpen((prevState) => ({
@@ -34,7 +35,7 @@ const Header = () => {
   const onItemClick = (label) => {
     localStorage.setItem('types', label)
     setItemActive(label);
-      search.resetSearch()
+    search.resetSearch()
   }
   const dispatch = useDispatch()
   const deleteUser = () => {

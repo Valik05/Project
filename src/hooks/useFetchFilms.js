@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { extractId } from "../helpers/extractId";
 import filmsServices from "../Services/filmsServices";
 
-export const useFetchFilms = (person) => {
+export const useFetchFilms = (item) => {
     const getId = ()=> {
-        const ids = person?.films.map((item) => extractId(item))
+        const ids = item?.films.map((film) => extractId(film))
         return ids;
     }
     const [films, setFilms] = useState();
@@ -24,7 +24,7 @@ export const useFetchFilms = (person) => {
 
     useEffect(() =>{
         getFilms()
-    },[person])
+    },[item])
 
     return {
         films,

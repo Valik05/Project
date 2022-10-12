@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import PropTypes from 'prop-types'
 
 export const SearchContext = React.createContext({
     query:'',
@@ -18,12 +18,22 @@ const SearchContextProvider = (props) => {
     }
 
     return (
-        <SearchContext.Provider
-            value={{ query: query, searchHandler: searchHandler }}
-        >
-            {props.children}
-        </SearchContext.Provider>
-    );
+      <SearchContext.Provider
+        value={{
+          query: query,
+          searchHandler: searchHandler,
+          resetSearch: resetSearch,
+        }}
+      >
+        {props.children}
+      </SearchContext.Provider>
+    )
 };
+SearchContextProvider.propTypes = {
+        children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])
+}
 
 export default SearchContextProvider;

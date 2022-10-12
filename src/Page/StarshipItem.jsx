@@ -12,7 +12,7 @@ const StarshipItem = () => {
    
 
     
-    const {img, error, loadingImg} = useFetchImg(id)
+    const {img, error, loadingImg} = useFetchImg(id, 'starships')
     if (loading) return <Loader />
     const { name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew } = person;
     return (
@@ -37,7 +37,7 @@ const StarshipItem = () => {
                     </div>
                 </div>
             </div>
-            <Films person={person}/>
+            <Films item={person}/>
         </div>
     );
 };

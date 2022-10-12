@@ -8,9 +8,10 @@ const Search = () => {
     const [search, setSearch] = useState('')
     const handleChange = (e) => {
         setSearch(e.target.value)
-    };
-    const value = useDebounce(search, 500)
-    const searchContext = useContext(SearchContext)
+  };
+  
+  const value = useDebounce(search, 500);
+  const searchContext = useContext(SearchContext);
      searchContext.searchHandler(value);
 
     return (
