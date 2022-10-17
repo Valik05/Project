@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import Actor from '../Components/Actor/Actor';
 import Films from '../Components/Films/Films';
 import Loader from '../Components/Loader/Loader';
 import { useFetchImg } from '../hooks/useFetchImg';
@@ -37,6 +38,7 @@ const StarshipItem = () => {
                     </div>
                 </div>
             </div>
+            <Actor item={person}/>
             <Films item={person}/>
         </div>
     );

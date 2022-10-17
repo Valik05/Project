@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import './Modal.css';
 
 const Modal = ({ children, open }) => {
@@ -8,12 +8,12 @@ const Modal = ({ children, open }) => {
 }
 
 Modal.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.array,
   open: PropTypes.bool,
 }
 
 Modal.defaultProps = {
-  children: () => {},
+  children: array,
   open: true,
 }
 

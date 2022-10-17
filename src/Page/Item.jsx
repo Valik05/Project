@@ -5,7 +5,7 @@ import Loader from '../Components/Loader/Loader'
 import Starship from '../Components/Starship/Starship'
 import { useFetchActor } from '../hooks/useFetchActor'
 import { useFetchImg } from '../hooks/useFetchImg'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './Item.css'
 const Item = () => {
   const { id } = useParams()
@@ -46,13 +46,13 @@ const Item = () => {
         </div>
       </div>
       <Starship person={person} />
-      <Films person={person} />
+      <Films item={person} />
     </div>
   )
 }
-// Item.propTypes = {
-//     children: PropTypes.any,
-//     error: PropTypes.object,
-// };
+Item.propTypes = {
+    children: PropTypes.any,
+    error: PropTypes.object,
+};
 
 export default Item
